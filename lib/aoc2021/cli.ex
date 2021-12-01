@@ -1,0 +1,29 @@
+defmodule Aoc2021.Cli do
+  @moduledoc "Usage: ./aoc2021 --day <num>"
+
+  def main(argv) do
+    argv
+    |> parse_day
+    |> run_day
+    |> print_result
+  end
+
+  defp parse_day(argv) do
+    options = [strict: [day: :integer], aliases: [d: :day]]
+    {opts, _} = OptionParser.parse!(argv, options)
+    opts[:day]
+  end
+
+  defp print_result(result) do
+    case result do
+      {:ok, part1, part2} ->
+        IO.puts("Part 1: #{part1}, Part 2: #{part2}")
+
+      {:error, message} ->
+        IO.puts(message)
+    end
+  end
+
+  defp run_day(nil), do: {:error, @moduledoc}
+  defp run_day(day), do: {:error, "Day #{day} not implemented!"}
+end
