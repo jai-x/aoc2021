@@ -1,17 +1,10 @@
 defmodule Aoc2021.Day1 do
-  @input File.read!("input/day1.txt")
+  @input Aoc2021.read_lines!("input/day1.txt")
 
   def run do
-    measurements =
-      @input
-      |> String.trim()
-      |> String.split("\n")
-      |> Enum.map(&String.trim/1)
-      |> Enum.map(&String.to_integer/1)
+    measurements = @input |> Enum.map(&String.to_integer/1)
 
-    part1 =
-      measurements
-      |> count_increase
+    part1 = measurements |> count_increase
 
     part2 =
       measurements
