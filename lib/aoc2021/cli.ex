@@ -33,6 +33,7 @@ defmodule Aoc2021.Cli do
   defp run_day(7), do: Aoc2021.Day7.run()
   defp run_day(8), do: Aoc2021.Day8.run()
   defp run_day(9), do: Aoc2021.Day9.run()
+  defp run_day(10), do: Aoc2021.Day10.run()
   defp run_day(nil), do: {:error, @moduledoc}
   defp run_day(day), do: {:error, "Day #{day} not implemented!"}
 end
